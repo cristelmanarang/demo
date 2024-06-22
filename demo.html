@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+<div>
+    <input type="checkbox" id="chkEnable">
+    <label for="chkEnable">Enable/Disable</label>
+
+    <input type="text" id="txtField" >
+    <input type="number" id="txtnum" >
+    <input type="button" id="btnSubmit" value="Submit">
+</div>
+
+<div>
+    <table>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Maria Anders</td>
+          <td>Germany</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>Francisco Chang</td>
+          <td>Mexico</td>
+        </tr>
+      </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script></script>
+<script src="test.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#chkEnable").click(function(){
+            if ($(this).is(":checked")) {
+                $("#txtField").attr("disabled", "disabled");
+                
+                
+            } else {
+                $("#txtField").removeAttr("disabled");
+            }
+        });
+        $("#btnSubmit").click(function(){
+            var txtName = $("#txtField").val();
+            InsertDB(txtName, txtnum);
+        });
+      });
+</script>
